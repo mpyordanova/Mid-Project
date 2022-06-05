@@ -1,10 +1,11 @@
 import axios from 'axios'
 import './App.css';
 import Home from './components/Home';
-import Title from './components/Title';
+import Book from './components/Book';
 import Author from './components/Author';
 import { useState } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom'
+import logo from './Book.jpeg'
 
 function App() {
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try{
+      console.log(`http://openlibrary.org/search.json?${formData.type}=${formData.search}`)
       const response = await axios.get(`http://openlibrary.org/search.json?${formData.type}=${formData.search}`)
       setApiResponse(response.data)
       navigate(`/${formData.type}`)
@@ -25,16 +27,24 @@ function App() {
     }
   }
 
-  const handleChange = (event)=> {
-    setFormData({...formData, [event.target.name]:event.target.value})
+  function handleChange(event) {
+    setFormData({ ...formData, [event.target.name]: event.target.value});
   }
   return (
     <div className="App">
-<Routes>
+       <header className="App-header">
+        <div className='left-container'><img src={logo} className="App-logo" alt="logo" /></div>
+          <div className='right-container'>
+          <div className='top'>"A mind needs books like a sword needs a whetstone, if it is to keep its edge."</div><br/>
+         <div className='bottom'>- George R.R. Martin, A Game of Thrones</div>
+         </div>
+         </header>
+<Routes>  
         <Route path='/' element={<Home handleSubmit={handleSubmit} handleChange={handleChange} />} />
-        <Route path='/title' element={<Title apiResponse={apiResponse} />} />
-        <Route path='/authors' element={<Author apiResponse={apiResponse}/>} />
-      </Routes>
+        {/* <Route path='/book' element={<Book apiResponse={apiResponse} />} /> */}
+        <Route path='/title' element={<Book apiResponse={apiResponse} />} />
+        <Route path='/author' element={<Author apiResponse={apiResponse}/>} />
+       </Routes>
 
       
     </div>
