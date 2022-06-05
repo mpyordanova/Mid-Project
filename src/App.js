@@ -33,6 +33,7 @@ function App() {
   return (
     <div className="App">
        <header className="App-header">
+        
         <div className='left-container'><img src={logo} className="App-logo" alt="logo" /></div>
           <div className='right-container'>
           <div className='top'>"A mind needs books like a sword needs a whetstone, if it is to keep its edge."</div><br/>
