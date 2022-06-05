@@ -5,7 +5,7 @@ import Book from './components/Book';
 import Author from './components/Author';
 import { useState } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom'
-import logo from './Book.jpeg'
+import logo from './Book2.jpeg'
 
 function App() {
   const navigate = useNavigate()

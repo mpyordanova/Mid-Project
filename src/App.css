@@ -23,7 +23,6 @@
   font-family: sans-serif;
   font-size: large;
   font-style: italic ;
-  /* padding: 50px; */
   background-color: var(--primary-color);
   
   
@@ -55,9 +54,7 @@
   font-size: small;
   align-items: center;
 }
-.box{
-  border: 2px blue;
-}
+
 
 html {
   min-height: 100vh;
@@ -69,4 +66,7 @@ html {
 }
 body{
   background-color: var(--secondary-color);
+  background-size: 80%;
+  margin: 20px;
+  border: 30px solid var(--primary-color);
 }
